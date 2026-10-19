@@ -148,11 +148,11 @@ section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
 .para-quem__arte {
   aspect-ratio: 1; border-radius: 50%;
   display: grid; place-items: center;
-  background: radial-gradient(circle, rgba(242,232,213,.08), transparent 68%);
-  border: 1px solid var(--linha);
-  max-width: 420px; margin-inline: auto; width: 100%;
+  background: radial-gradient(circle, rgba(199,126,97,.10), transparent 65%);
+  max-width: 460px; margin-inline: auto; width: 100%;
 }
-.para-quem__arte img { width: 58%; filter: drop-shadow(0 20px 40px rgba(0,0,0,.4)); }
+.para-quem__arte canvas { width: 100%; height: auto; }
+.para-quem__virada { font-size: 1.12rem; line-height: 1.55; max-width: 52ch; margin: 0 0 16px; }
 .lista { list-style: none; padding: 0; margin: 8px 0 28px; }
 .lista li {
   display: flex; align-items: center; gap: 16px;
