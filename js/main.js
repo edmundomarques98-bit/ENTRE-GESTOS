@@ -56,7 +56,7 @@
     ctx.lineCap = "round";
 
     // contorno
-    ctx.strokeStyle = "rgba(242,232,213,.55)";
+    ctx.strokeStyle = "rgba(53,62,59,.6)";
     ctx.lineWidth = 1.6;
     ctx.stroke(cabeca);
 
@@ -70,7 +70,7 @@
       ctx.bezierCurveTo(cx + (rnd() - .5) * 160, cy + (rnd() - .5) * 160,
                         cx + (rnd() - .5) * 160, cy + (rnd() - .5) * 160,
                         cx + (rnd() - .5) * 120, cy + (rnd() - .5) * 120);
-      ctx.strokeStyle = "rgba(242,232,213," + (.06 + rnd() * .16).toFixed(2) + ")";
+      ctx.strokeStyle = "rgba(53,62,59," + (.05 + rnd() * .14).toFixed(2) + ")";
       ctx.lineWidth = .5 + rnd() * .9;
       ctx.stroke();
     }

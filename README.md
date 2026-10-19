@@ -13,7 +13,7 @@ Abra `js/config.js` e preencha data, horário, local, preço, vagas, WhatsApp, I
 - Fotos: `assets/img/atelie-paleta.jpg` e `atelie-cartao.jpg` são recortes da prancha de identidade. Trocar por fotos reais da oficina.
 - Depoimentos: só usar frases reais, coletadas com autorização após o piloto.
 - Equipe: nomes, fotos e CRP da coordenação psicológica.
-- Símbolo: `assets/img/simbolo.svg` é um redesenho provisório até o vetor oficial.
+- Logo: `assets/img/logo.png` e `simbolo.png` foram recortados da prancha de identidade (PNG com fundo transparente). Trocar pelo SVG oficial quando existir.
 
 ## Visualizar
 
