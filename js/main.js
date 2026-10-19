@@ -43,17 +43,4 @@
       });
     });
   });
-
-  // Entrada suave das seções
-  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    var io = new IntersectionObserver(function (entradas) {
-      entradas.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add("visivel"); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll("main > section:not(.hero)").forEach(function (s) {
-      s.classList.add("revelar");
-      io.observe(s);
-    });
-  }
 })();

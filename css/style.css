@@ -18,6 +18,7 @@
 
   --raio: 14px;
   --largura: 1120px;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -82,7 +83,7 @@ section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
 
 /* Topo */
 .topo {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
   background: rgba(35,42,40,.86);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--linha);
@@ -278,7 +279,7 @@ section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
 .rodape__base { margin-top: 32px; padding-top: 16px; border-top: 1px solid rgba(53,62,59,.15); font-size: .82rem; color: rgba(53,62,59,.7); }
 
 .whats-flutuante {
-  position: fixed; right: 20px; bottom: 20px; z-index: 20;
+  position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 20;
   width: 56px; height: 56px; border-radius: 50%;
   background: #25D366; display: grid; place-items: center;
   box-shadow: 0 10px 24px rgba(0,0,0,.3);
@@ -286,10 +287,6 @@ section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
 .whats-flutuante svg { width: 28px; height: 28px; fill: #fff; }
 
 [hidden] { display: none !important; }
-
-/* Entrada das seções */
-.revelar { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.revelar.visivel { opacity: 1; transform: none; }
 
 /* Responsivo */
 @media (max-width: 960px) {
