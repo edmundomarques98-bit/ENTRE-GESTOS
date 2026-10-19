@@ -289,6 +289,82 @@ section { padding: clamp(72px, 10vw, 120px) 0; position: relative; }
 
 [hidden] { display: none !important; }
 
+/* ---------- Animações ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* títulos: palavras sobem em sequência */
+  .anim .palavra {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(.45em);
+    transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1);
+    transition-delay: calc(var(--i) * 70ms);
+  }
+  .anim .visivel .palavra, .anim h1.visivel .palavra, .anim h2.visivel .palavra { opacity: 1; transform: none; }
+
+  /* destaque colorido ganha um traço de pincel por baixo */
+  h1 em, h2 em { position: relative; }
+  .anim h1 em::after, .anim h2 em::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -.06em; height: .09em;
+    border-radius: 99px; background: currentColor; opacity: .35;
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .9s cubic-bezier(.2,.7,.2,1) .5s;
+  }
+  .anim h1.visivel em::after, .anim h2.visivel em::after { transform: scaleX(1); }
+
+  /* itens de listas e grupos */
+  .anim .item-anim {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity .55s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+    transition-delay: calc(var(--i) * 90ms + 150ms);
+  }
+  .anim .visivel > .item-anim { opacity: 1; transform: none; }
+
+  /* ícones: traço se desenha e depois flutua de leve */
+  .anim .ico svg * { stroke-dasharray: 80; stroke-dashoffset: 80; }
+  .anim .beneficios.visivel .ico svg * {
+    animation: desenhar 1.2s ease forwards;
+    animation-delay: calc(var(--i, 0) * 120ms + 300ms);
+  }
+  .ico { display: inline-flex; animation: flutuar 4s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -.7s); }
+  .beneficios li:hover .ico svg { transform: rotate(-8deg) scale(1.12); }
+  .ico svg { transition: transform .35s ease; }
+
+  /* marcadores da lista acendem */
+  .lista li::before { transition: transform .4s ease, border-color .4s ease; }
+  .anim .lista .item-anim::before { transform: scale(.3); }
+  .anim .lista.visivel .item-anim::before { transform: scale(1); transition-delay: calc(var(--i) * 90ms + 350ms); }
+  .lista li:hover::before { border-color: var(--petroleo); transform: scale(1.15); }
+
+  .checks li::before { animation: pulso 3.2s ease-in-out infinite; animation-delay: calc(var(--i, 0) * .4s); }
+
+  /* traços decorativos do hero se desenham */
+  .anim .traco path { stroke-dasharray: 1400; stroke-dashoffset: 1400; transition: stroke-dashoffset 2.6s cubic-bezier(.3,.6,.2,1); }
+  .anim .traco.visivel path { stroke-dashoffset: 0; }
+  .anim .traco .t2 { transition-delay: .4s; }
+
+  /* imagens surgem com leve zoom */
+  .anim .arco, .anim .moldura, .anim .para-quem__arte { opacity: 0; transform: scale(.96); transition: opacity 1s ease, transform 1.2s cubic-bezier(.2,.7,.2,1); }
+  .anim .arco.visivel, .anim .moldura.visivel, .anim .para-quem__arte.visivel { opacity: 1; transform: none; }
+  .moldura img, .arco img { transition: transform 6s ease; }
+  .moldura:hover img, .arco:hover img { transform: scale(1.06); }
+
+  /* cartões e botões */
+  .card { transition: transform .35s ease, box-shadow .35s ease; }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(53,62,59,.12); }
+  .roteiro li { transition: background-color .3s ease, padding-left .3s ease; }
+  .roteiro li:hover { background: var(--areia); padding-left: 10px; }
+
+  .whats-flutuante::after {
+    content: ""; position: absolute; inset: 0; border-radius: 50%;
+    border: 2px solid #25D366; animation: onda 2.6s ease-out infinite;
+  }
+
+  @keyframes desenhar { to { stroke-dashoffset: 0; } }
+  @keyframes flutuar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes pulso { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  @keyframes onda { from { transform: scale(1); opacity: .7; } to { transform: scale(1.6); opacity: 0; } }
+}
+
 /* Responsivo */
 @media (max-width: 960px) {
   .menu { display: none; }
